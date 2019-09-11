@@ -1,0 +1,38 @@
+/* HEADER */
+$cart-height: 60px
+.header
+  padding: 5px 20px 0
+  -webkit-box-shadow: 0 8px 7px -6px #ccc
+  -moz-box-shadow: 0 8px 6px -6px #ccc
+  box-shadow: 0 8px 6px -6px #ccc
+  &__nav
+    margin-left: 200px
+    margin-top: 50px
+  &__brand
+    background-image: url("../../assets/images/common/logo.png")
+    width: 190px
+    height: 83px
+    margin: 15px 0
+    float: left
+  &__cart
+    background-color: #EEEEEE
+    width: 135px
+    height: $cart-height
+    float: right
+    &--route
+      margin-top: 25px
+      margin-left: 5px
+      cursor: pointer
+      width: 20px
+      height: 20px
+    img
+      margin-left: 10px
+      margin-top: $cart-height  - 40
+      color: $theme-primary
+    img:hover
+        cursor: pointer
+
+    .cart-value
+      font-size: 16px
+      font-weight: bold
+      margin-left: 10px

@@ -14,7 +14,6 @@ export const renderMessage = (type, message, element) => {
     case messages.success.selector:
       markup = markup.replace('%%message-box-class%%', messages.success.cssSelector)
       break
-
     case messages.failure.selector:
       markup = markup.replace('%%message-box-class%%', messages.failure.cssSelector)
       break
@@ -25,11 +24,13 @@ export const renderMessage = (type, message, element) => {
       markup = markup.replace('%%message-box-class%%', messages.info.cssSelector)
       break
   }
+
   const messageElement = document.querySelector('#message-box')
   if (messageElement) {
     messageElement.parentNode.removeChild(messageElement)
     element.insertAdjacentHTML('beforebegin', markup)
   } else {
+    console.log(markup)
     element.insertAdjacentHTML('beforebegin', markup)
   }
 }

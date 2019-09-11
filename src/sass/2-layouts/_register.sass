@@ -1,146 +1,23 @@
 /* Register */
 $form-elmnt-width: 300px
 .register
-  .register-left
+  &__left
     +span-columns(6)
     float: left
     color: #000
-    h3
-      padding-top: 80px
-      font-weight: bold
-      text-align: left
-      font-size: 26px
-      text-transform: none
-    span
+  &__heading
+    padding-top: 80px
+    font-weight: bold
+    text-align: left
+    font-size: 26px
+    text-transform: none
+  &__details
       font-size: 16px
       font-weight: bold
 
-  .register-right
+  &__right
     +span-columns(6)
     float: right
     padding-top: 40px
     input
       font-family: Dosis
-
-  /* form starting stylings -------------------------------
-
-  .group
-    position: relative
-    margin-bottom: 45px
-
-  input
-    font-size: 18px
-    padding: 10px 10px 10px 5px
-    display: block
-    width: $form-elmnt-width
-    border: none
-    border-bottom: 2px solid #ACACAC
-    border-radius: 0px
-    font-weight: bold
-    background-color: #FCFCFC
-    box-shadow: none
-    &:focus
-      outline: none
-      border: none
-      border-bottom: 2px solid #2FB9C6
-      border-radius: 0px
-      box-shadow: none
-
-  /* LABEL =======================================
-
-  label
-    color: #ACACAC
-    font-size: 16px
-    position: absolute
-    pointer-events: none
-    left: 0px
-    top: 10px
-    transition: 0.2s ease all
-    -moz-transition: 0.2s ease all
-    -webkit-transition: 0.2s ease all
-
-  /* active state
-
-  input
-    &:focus ~ label, &:valid ~ label
-      top: -20px
-      font-size: 14px
-      color: #2FB9C6
-      // border: none
-      // border-bottom: 2px solid #2FB9C6
-      // border-radius: 0px
-  button
-    width: $form-elmnt-width
-
-
-  /* BOTTOM BARS =================================
-
-  // .bar
-  //   position: relative
-  //   display: block
-  //   width: 300px
-  //   &:before, &:after
-  //     content: ''
-  //     height: 2px
-  //     width: 0
-  //     bottom: 0px
-  //     position: absolute
-  //     background: #2FB9C6
-  //     transition: 0.2s ease all
-  //     -moz-transition: 0.2s ease all
-  //     -webkit-transition: 0.2s ease all
-  //   &:before
-  //     left: 50%
-  //   &:after
-  //     right: 50%
-  //
-  // /* active state
-  //
-  // input:focus ~ .bar
-  //   &:before, &:after
-  //     width: 50%
-
-  // /* HIGHLIGHTER ==================================
-  //
-  // .highlight
-  //   position: absolute
-  //   height: 60%
-  //   width: 100px
-  //   top: 25%
-  //   left: 0
-  //   pointer-events: none
-  //   opacity: 0.5
-  //
-  // /* active state
-  //
-  // input:focus ~ .highlight
-  //   -webkit-animation: inputHighlighter 0.3s ease
-  //   -moz-animation: inputHighlighter 0.3s ease
-  //   animation: inputHighlighter 0.3s ease
-  //
-  // /* ANIMATIONS ================
-  // @-webkit-keyframes inputHighlighter
-  //   from
-  //     background: #FCFCFC
-  //
-  //   to
-  //     width: 0
-  //     background: transparent
-  //
-  //
-  // @-moz-keyframes inputHighlighter
-  //   from
-  //     background: #FCFCFC
-  //
-  //   to
-  //     width: 0
-  //     background: transparent
-  //
-  //
-  // @keyframes inputHighlighter
-  //   from
-  //     background: #FCFCFC
-  //
-  //   to
-  //     width: 0
-  //     background: transparent

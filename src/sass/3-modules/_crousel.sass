@@ -4,7 +4,6 @@
  * @github: https://github.com/dangvanthanh/carousel.sass
  * @description: A Simple Carousel Pure CSS Using Sass
  * @version: 1.0.0
-
 .carousel > input[type="radio"]
   &:nth-child(1):checked ~
     .carousel__prev > label:nth-child(5), .carousel__next > label:nth-child(2)
@@ -18,19 +17,6 @@
     .carousel__prev > label:nth-child(2), .carousel__next > label:nth-child(4)
       opacity: 1 !important
       z-index: 3
-
-*
-  box-sizing: border-box
-  -webkit-box-sizing: border-box
-  -moz-box-sizing: border-box
-  &:before, &:after
-    box-sizing: border-box
-    -webkit-box-sizing: border-box
-    -moz-box-sizing: border-box
-
-body
-  background: #fcfcfc
-  margin: 0
 
 .container
   width: 900px

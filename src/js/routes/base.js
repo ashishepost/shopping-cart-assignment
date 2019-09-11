@@ -1,7 +1,7 @@
 export const routes = {
-  mainPage: document.querySelector('#main-page-route'),
-  login: document.querySelector('#login-route'),
-  signup: document.querySelector('#signup-route'),
-  products: document.querySelector('#products-route'),
-  cart: document.querySelector('#cart-route')
+  mainPage: document.querySelector('.' + 'menu__item--main-page-route'),
+  products: document.querySelector('.' + 'menu__item__list--products-route'),
+  login: document.querySelector('.' + 'menu__item--login-route'),
+  signup: document.querySelector('.' + 'menu__item--signup-route'),
+  cart: document.querySelector('.' + 'header__cart--route')
 }

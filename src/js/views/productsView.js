@@ -23,6 +23,7 @@ import {
 } from '../services/appServices'
 
 export const renderProducts = (filtered) => {
+  elements.updateURL('products')
   let markup = `
   <section class="products">
     <div class="products-menu">

@@ -119,6 +119,7 @@ const registerMessages = () => {
 }
 
 const loginController = () => {
+  // elements.updateURL('login')
   if (!state.loginPage) {
     state.loginPage = {}
   }
@@ -138,6 +139,7 @@ const loginController = () => {
 }
 
 const signUpController = () => {
+  elements.updateURL('register')
   if (!state.signUpPage) {
     state.signUpPage = {}
   }
@@ -199,6 +201,7 @@ const productsController = () => {
 }
 
 const cartController = () => {
+  elements.updateURL('cart')
   if (!state.cartView) {
     state.cartView = {}
   }

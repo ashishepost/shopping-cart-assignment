@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <style>
     @font-face {
@@ -38,47 +37,54 @@
   </script>
 </head>
 
-<body>
+<body class="page">
 
-  <div class="wrapper">
-    <header>
-      <a class="brand" href="/"></a>
+    <section class="top-nav">
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__item--login-route" href="#">SignIn</a></li>
+        <li class="menu__item"><a class="menu__item--signup-route"href="#">Register</a></li>
+      </ul>
 
-      <nav>
-        <ul>
-          <li><a id="main-page-route" href="#">Home</a></li>
-          <li id="products-route"><a href="#">Products</a></li>
-        </ul>
-      </nav>
+    </section>
 
-      <section class="top-nav">
-        <ul>
-          <li id="login-route"><a href="#">SignIn</a></li>
-          <li id="signup-route"><a href="#">Register</a></li>
-        </ul>
+  <header class="header">
 
-      </section>
-      <section class="cart">
-        <!-- <i id="cart-route" class="fas fa-shopping-cart"></i> -->
-        <img id="cart-route" src="static/images/cart.svg" alt="cart">
-        <span id="cart-item-count" class="cart-value">0 Items</span>
-      </section>
+    <div class="header__brand"></div>
 
-    </header>
-    <div id="carousel-content">
-      <!-- Render Carousel -->
+    <nav class="header__nav">
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__item--main-page-route" href="#">Home</a></li>
+        <li class="menu__item"><a class="menu__item__list--products-route" href="#">Products</a></li>
+      </ul>
+    </nav>
+    <section class="header__cart">
+      <img class="header__cart--route" src="static/images/cart.svg" alt="cart">
+      <span class="header__cart--item-count cart-value">0 Items</span>
+    </section>
+  </header>
+  <div class="content">
+
+    <!-- Render Carousel -->
+    <div class="carousel-content">
+
     </div>
-    <div id="main-content">
-      <!-- Render All Routes -->
+
+    <!-- Render All Routes -->
+    <div class="main-content">
+
     </div>
-    <div id="loader"></div>
-    <div id="cart"></div>
+    <div class="loader">
+    </div>
+    <div class="cart">
+    </div>
 
   </div>
-  <footer>
-    Copyright &copy;2011-2018 Sabka Bazar Grocery Supplies Pvt. Ltd.
-  </footer>
+  <footer class="footer">
+    <div class="footer__copyright">
+      Copyright &copy;2011-2018 Sabka Bazar Grocery Supplies Pvt. Ltd.
+    </div>
 
+  </footer>
 </body>
 
 </html>

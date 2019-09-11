@@ -1,10 +1,10 @@
 export const elements = {
-  loader: document.querySelector('#loader'),
-  cart: document.querySelector('#cart'),
-  cartItemCount: document.querySelector('#cart-item-count'),
+  loader: document.querySelector('.' + 'loader'),
+  cart: document.querySelector('.' + 'cart'),
+  cartItemCount: document.querySelector('.' + 'header__cart--item-count'),
   landingPage: {
-    mainContent: document.querySelector('#main-content'),
-    carouselContent: document.querySelector('#carousel-content')
+    mainContent: document.querySelector('.' + 'main-content'),
+    carouselContent: document.querySelector('.' + 'carousel-content')
   },
   validators: {
     emailPattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -21,6 +21,13 @@ export const elements = {
       closeButtonIconEventStatus: false,
       addItemEventStatus: false,
       removeItemEventStatus: false
+    }
+  },
+  updateURL: (url) => {
+    if (typeof (window.history.pushState) !== 'undefined') {
+      window.history.pushState({}, url.toUpperCase, url)
+    } else {
+      window.alert('Routings for this Browser not supported')
     }
   }
 }
