@@ -16,4 +16,4 @@ export const APIEndPoints = {
     URL: 'addToCart',
     type: 'POST'
   }
-}
+};

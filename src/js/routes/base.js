@@ -4,4 +4,4 @@ export const routes = {
   login: document.querySelector('.' + 'menu__item--login-route'),
   signup: document.querySelector('.' + 'menu__item--signup-route'),
   cart: document.querySelector('.' + 'header__cart--route')
-}
+};

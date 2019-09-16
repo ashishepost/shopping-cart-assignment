@@ -1,28 +1,30 @@
-import {
-  APIEndPoints
-} from './base'
-import {
-  RxHR
-} from '@akanass/rx-http-request'
-
-export const GETBanners = () => {
-  return RxHR.get(APIEndPoints.baseURL + APIEndPoints.banners.URL)
-}
-
-export const GETCategories = () => {
-  return RxHR.get(APIEndPoints.baseURL + APIEndPoints.categories.URL)
-}
-
-export const GETProducts = () => {
-  return RxHR.get(APIEndPoints.baseURL + APIEndPoints.products.URL)
-}
-
-export const POSTAddToCart = (productId) => {
-  const options = {
-    body: {
-      productId: productId
-    },
-    json: true
+export const fetchData = (url, data, type) => {
+  // Default options are marked with *
+  switch (type) {
+    case 'GET':
+      return fetch(url, {
+        method: type,
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrer: 'no-referrer'
+      }).then(res => res.json());
+    case 'POST':
+      return fetch(url, {
+        method: type,
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrer: 'no-referrer',
+        body: {
+          productId: data
+        }
+      }).then(res => res.json());
   }
-  return RxHR.post(APIEndPoints.baseURL + APIEndPoints.addToCart.URL, options)
-}
+};

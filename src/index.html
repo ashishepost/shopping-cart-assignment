@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <style>
     @font-face {
@@ -15,7 +16,7 @@
   <!-- Complete App related Styles -->
   <link href="assets/css/app.css" rel="stylesheet">
   <!-- Google Font used in this App -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet">
   <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script> -->
 
   <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
@@ -37,54 +38,56 @@
   </script>
 </head>
 
-<body class="page">
+<body>
+  <div class="page">
+
 
     <section class="top-nav">
       <ul class="menu">
         <li class="menu__item"><a class="menu__item--login-route" href="#">SignIn</a></li>
-        <li class="menu__item"><a class="menu__item--signup-route"href="#">Register</a></li>
+        <li class="menu__item"><a class="menu__item--signup-route" href="#">Register</a></li>
       </ul>
 
     </section>
 
-  <header class="header">
+    <header class="header">
 
-    <div class="header__brand"></div>
+      <div class="header__brand"></div>
 
-    <nav class="header__nav">
-      <ul class="menu">
-        <li class="menu__item"><a class="menu__item--main-page-route" href="#">Home</a></li>
-        <li class="menu__item"><a class="menu__item__list--products-route" href="#">Products</a></li>
-      </ul>
-    </nav>
-    <section class="header__cart">
-      <img class="header__cart--route" src="static/images/cart.svg" alt="cart">
-      <span class="header__cart--item-count cart-value">0 Items</span>
-    </section>
-  </header>
-  <div class="content">
+      <nav class="header__nav">
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__item--main-page-route" href="#">Home</a></li>
+          <li class="menu__item"><a class="menu__item__list--products-route" href="#">Products</a></li>
+        </ul>
+      </nav>
+      <section class="header__cart">
+        <img class="header__cart--route" src="static/images/cart.svg" alt="cart">
+        <span class="header__cart--item-count cart-value">0 Items</span>
+      </section>
+    </header>
+    <div class="content">
 
-    <!-- Render Carousel -->
-    <div class="carousel-content">
+      <!-- Render Carousel -->
+      <div class="carousel-content">
+
+      </div>
+
+      <!-- Render All Routes -->
+      <div class="main-content">
+
+      </div>
+      <div class="loader">
+      </div>
+      <div class="cart">
+      </div>
 
     </div>
-
-    <!-- Render All Routes -->
-    <div class="main-content">
-
-    </div>
-    <div class="loader">
-    </div>
-    <div class="cart">
-    </div>
-
+    <footer class="footer">
+      <div class="footer__copyright">
+        Copyright &copy;2011-2018 Sabka Bazar Grocery Supplies Pvt. Ltd.
+      </div>
+    </footer>
   </div>
-  <footer class="footer">
-    <div class="footer__copyright">
-      Copyright &copy;2011-2018 Sabka Bazar Grocery Supplies Pvt. Ltd.
-    </div>
-
-  </footer>
 </body>
 
 </html>

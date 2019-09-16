@@ -1,26 +1,26 @@
 import {
   elements
-} from './base'
+} from './base';
 
 import {
   servicesData
-} from '../models/Services'
+} from '../models/Services';
 
 import {
   renderCartCount
-} from '../views/headerCartCountView'
+} from '../views/headerCartCountView';
 
 import {
   updateProductDetails
-} from '../views/productsView'
+} from '../views/productsView';
 
 export const renderCart = (render) => {
-  let cartEmpty = null
-  let markup = null
+  let cartEmpty = null;
+  let markup = null;
   if (servicesData.cartStatus.productDetails.id === null) {
-    cartEmpty = true
+    cartEmpty = true;
   } else {
-    cartEmpty = false
+    cartEmpty = false;
   }
 
   if (cartEmpty) {
@@ -42,7 +42,7 @@ export const renderCart = (render) => {
       </div>
 
     </section>
-      `
+      `;
   } else {
     markup = `
     <section class="cart-load">
@@ -83,36 +83,36 @@ export const renderCart = (render) => {
         <img src="static/images/lowest-price.png" alt="Lowet Price">
       </div>
     </section>
-      `
-    markup = markup.replace(/%%item-count%%/g, servicesData.cartStatus.productDetails.count)
-    markup = markup.replace('%%item-image-url%%', servicesData.cartStatus.productDetails.imageURL)
-    markup = markup.replace('%%item-name%%', servicesData.cartStatus.productDetails.name)
-    markup = markup.replace('%%item-price%%', servicesData.cartStatus.productDetails.price)
-    markup = markup.replace(/%%item-final-price%%/g, servicesData.cartStatus.productDetails.price * servicesData.cartStatus.productDetails.count)
+      `;
+    markup = markup.replace(/%%item-count%%/g, servicesData.cartStatus.productDetails.count);
+    markup = markup.replace('%%item-image-url%%', servicesData.cartStatus.productDetails.imageURL);
+    markup = markup.replace('%%item-name%%', servicesData.cartStatus.productDetails.name);
+    markup = markup.replace('%%item-price%%', servicesData.cartStatus.productDetails.price);
+    markup = markup.replace(/%%item-final-price%%/g, servicesData.cartStatus.productDetails.price * servicesData.cartStatus.productDetails.count);
   }
   if (render) {
-    elements.cart.innerHTML = markup
+    elements.cart.innerHTML = markup;
     addElements()
     if (!elements.registerdEvents.CartPage.addItemEventStatus && !elements.registerdEvents.CartPage.removeItemEventStatus && servicesData.cartStatus.cartDetails.totalItemCount > 0) {
-      registerEvents(true, addRemoveHandler)
+      registerEvents(true, addRemoveHandler);
     } else if (elements.registerdEvents.CartPage.addItemEventStatus && elements.registerdEvents.CartPage.removeItemEventStatus) {
-      registerEvents(false, addRemoveHandler)
+      registerEvents(false, addRemoveHandler);
     }
-    servicesData.cartStatus.cartDetails.onScreen = true
-    elements.cart.style.display = 'block'
+    servicesData.cartStatus.cartDetails.onScreen = true;
+    elements.cart.style.display = 'block';
     // console.log(elements.cartView);
   } else {
-    elements.cart.style.display = 'none'
-    servicesData.cartStatus.cartDetails.onScreen = false
+    elements.cart.style.display = 'none';
+    servicesData.cartStatus.cartDetails.onScreen = false;
     if (elements.registerdEvents.CartPage.addItemEventStatus && elements.registerdEvents.CartPage.removeItemEventStatus) {
-      registerEvents(false)
+      registerEvents(false);
     }
   }
-}
+};
 
 export const renderCartValues = () => {
-  let markup = null
-  let finalPrice = null
+  let markup = null;
+  let finalPrice = null;
   if (servicesData.cartStatus.cartDetails.totalItemCount === 0) {
     markup = `
     <section class="cart-load">
@@ -132,62 +132,62 @@ export const renderCartValues = () => {
       </div>
 
     </section>
-      `
-    elements.cart.innerHTML = markup
-    registerEvents(false, addRemoveHandler)
+      `;
+    elements.cart.innerHTML = markup;
+    registerEvents(false, addRemoveHandler);
     if (servicesData.cartStatus.cartDetails.onScreen) {
-      renderCart(true)
+      renderCart(true);
       elements.cartView.closeButtonIcon.addEventListener('click', e => {
-        renderCart(false)
-      })
+        renderCart(false);
+      });
     }
   } else {
-    finalPrice = servicesData.cartStatus.cartDetails.totalItemCount * servicesData.cartStatus.productDetails.price
-    document.querySelector('.cart-item-quantity').innerHTML = servicesData.cartStatus.cartDetails.totalItemCount
-    document.querySelector('.cart-final-price').innerHTML = finalPrice
-    document.querySelector('.cart-count').innerHTML = 'My Cart (' + servicesData.cartStatus.cartDetails.totalItemCount + ' Item)'
-    document.querySelector('#cart-total-price').innerHTML = finalPrice
+    finalPrice = servicesData.cartStatus.cartDetails.totalItemCount * servicesData.cartStatus.productDetails.price;
+    document.querySelector('.cart-item-quantity').innerHTML = servicesData.cartStatus.cartDetails.totalItemCount;
+    document.querySelector('.cart-final-price').innerHTML = finalPrice;
+    document.querySelector('.cart-count').innerHTML = 'My Cart (' + servicesData.cartStatus.cartDetails.totalItemCount + ' Item)';
+    document.querySelector('#cart-total-price').innerHTML = finalPrice;
   }
-}
+};
 const addElements = () => {
   elements.cartView = {
     closeButtonIcon: document.querySelector('#cart-close-button'),
     cartSection: document.querySelector('.cart-load'),
     addItem: document.querySelector('#add-item-cart'),
     removeItem: document.querySelector('#remove-item-cart')
-  }
-}
+  };
+};
 
 export const registerEvents = (register, addRemoveHandler) => {
   if (register) {
     // Add Product
-    elements.cartView.addItem.addEventListener('click', addRemoveHandler)
-    elements.registerdEvents.CartPage.addItemEventStatus = true
+    elements.cartView.addItem.addEventListener('click', addRemoveHandler);
+    elements.registerdEvents.CartPage.addItemEventStatus = true;
     // Remove Product
-    elements.cartView.removeItem.addEventListener('click', addRemoveHandler)
-    elements.registerdEvents.CartPage.removeItemEventStatus = true
+    elements.cartView.removeItem.addEventListener('click', addRemoveHandler);
+    elements.registerdEvents.CartPage.removeItemEventStatus = true;
   } else {
-    elements.cartView.addItem.removeEventListener('click', addRemoveHandler)
-    elements.registerdEvents.CartPage.addItemEventStatus = false
+    elements.cartView.addItem.removeEventListener('click', addRemoveHandler);
+    elements.registerdEvents.CartPage.addItemEventStatus = false;
 
-    elements.cartView.removeItem.removeEventListener('click', addRemoveHandler)
-    elements.registerdEvents.CartPage.removeItemEventStatus = false
+    elements.cartView.removeItem.removeEventListener('click', addRemoveHandler);
+    elements.registerdEvents.CartPage.removeItemEventStatus = false;
   }
-}
+};
 
 const addRemoveHandler = (event) => {
   switch (event.target.id) {
     case 'add-item-cart':
-      updateProductDetails('updateAdd', servicesData.cartStatus.productDetails.id)
-      renderCartCount()
-      renderCartValues()
-      break
+      updateProductDetails('updateAdd', servicesData.cartStatus.productDetails.id);
+      renderCartCount();
+      renderCartValues();
+      break;
     case 'remove-item-cart':
       if (servicesData.cartStatus.cartDetails.totalItemCount > 0) {
-        updateProductDetails('updateRemove', servicesData.cartStatus.productDetails.id)
-        renderCartCount()
-        renderCartValues()
+        updateProductDetails('updateRemove', servicesData.cartStatus.productDetails.id);
+        renderCartCount();
+        renderCartValues();
       }
-      break
+      break;
   }
-}
+};

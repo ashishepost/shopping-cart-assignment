@@ -1,6 +1,6 @@
 import {
   elements
-} from './base'
+} from './base';
 
 export const renderLogin = () => {
   const markup = `
@@ -31,10 +31,10 @@ export const renderLogin = () => {
           </div>
         </form>
   </section>
-    `
-  elements.landingPage.mainContent.innerHTML = markup
-  addElements()
-}
+    `;
+  elements.landingPage.mainContent.innerHTML = markup;
+  addElements();
+};
 
 const addElements = () => {
   elements.loginPage = {
@@ -42,5 +42,5 @@ const addElements = () => {
     userNameInput: document.querySelector('.' + 'login__input--username'),
     passwordInput: document.querySelector('.' + 'login__input--password'),
     submitButton: document.querySelector('.' + 'login__input--submit')
-  }
-}
+  };
+};

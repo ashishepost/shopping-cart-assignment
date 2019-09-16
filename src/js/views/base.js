@@ -25,9 +25,9 @@ export const elements = {
   },
   updateURL: (url) => {
     if (typeof (window.history.pushState) !== 'undefined') {
-      window.history.pushState({}, url.toUpperCase, url)
+      window.history.pushState({}, url.toUpperCase, url);
     } else {
-      window.alert('Routings for this Browser not supported')
+      window.alert('Routings for this Browser not supported');
     }
   }
-}
+};

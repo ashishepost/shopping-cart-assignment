@@ -1,29 +1,34 @@
 import {
   elements
-} from './base'
+} from './base';
 import {
   servicesData
-} from '../models/Services'
+} from '../models/Services';
 
 import {
   XHRLoader
-} from './loaderView'
+} from './loaderView';
 
 import {
   renderCart
-} from '../views/cartView'
+} from '../views/cartView';
 
 import {
   renderCartCount
-} from '../views/headerCartCountView'
+} from '../views/headerCartCountView';
 
 // API section
 import {
-  POSTAddToCart
-} from '../services/appServices'
+  // POSTAddToCart
+  fetchData
+} from '../services/appServices';
+
+import {
+  APIEndPoints
+} from '../services/base';
 
 export const renderProducts = (filtered) => {
-  elements.updateURL('products')
+  elements.updateURL('products');
   let markup = `
   <section class="products">
     <div class="products-menu">
@@ -36,27 +41,27 @@ export const renderProducts = (filtered) => {
       %%products%%
     </div>
   </section>
-    `
+    `;
 
   // Products Categories
   if (servicesData.categories) {
-    let productsCategories = ''
+    let productsCategories = '';
     for (let i = 0; i < servicesData.categories.length; i++) {
-      productsCategories = productsCategories + '<li><a class="filter-categories" id="' + servicesData.categories[i].id + '" href="#">' + servicesData.categories[i].name + '</a></li>'
+      productsCategories = productsCategories + '<li><a class="filter-categories" id="' + servicesData.categories[i].id + '" href="#">' + servicesData.categories[i].name + '</a></li>';
     }
 
-    markup = markup.replace('%%products-menu%%', productsCategories)
-    elements.landingPage.mainContent.innerHTML = markup
+    markup = markup.replace('%%products-menu%%', productsCategories);
+    elements.landingPage.mainContent.innerHTML = markup;
     if (!elements.registerdEvents.productsPage.filterCategoriesEventStatus) {
-      filterCategories()
+      filterCategories();
     }
   } else {
-    elements.landingPage.mainContent.innerHTML = 'Sorry Unable to Fetch Data'
+    elements.landingPage.mainContent.innerHTML = 'Sorry Unable to Fetch Data';
   }
   if (!filtered) {
     // Products Section
     if (servicesData.products) {
-      let products = ''
+      let products = '';
       // servicesData.products.length
       for (let i = 0; i < servicesData.products.length; i++) {
         products = products + `<div class="product">
@@ -69,23 +74,23 @@ export const renderProducts = (filtered) => {
             <span class="price">MRP ₹ ` + servicesData.products[i].price + `</span>
             <button class="button-Buy-Now" id="` + servicesData.products[i].id + `">Buy Now</button>
           </div>
-          </div>`
+          </div>`;
       }
 
-      markup = markup.replace('%%products%%', products)
-      elements.landingPage.mainContent.innerHTML = markup
+      markup = markup.replace('%%products%%', products);
+      elements.landingPage.mainContent.innerHTML = markup;
       if (!elements.registerdEvents.productsPage.handleButtonsEventStatus) {
-        handleButtons()
+        handleButtons();
       }
     } else {
-      elements.landingPage.mainContent.innerHTML = 'Sorry Unable to Fetch Data'
+      elements.landingPage.mainContent.innerHTML = 'Sorry Unable to Fetch Data';
     }
   } else {
     // Filfiltered Products Section
-    document.querySelector('.products-listing').removeEventListener('click', buttonEventHandler)
-    elements.registerdEvents.productsPage.handleButtonsEventStatus = false
+    document.querySelector('.products-listing').removeEventListener('click', buttonEventHandler);
+    elements.registerdEvents.productsPage.handleButtonsEventStatus = false;
     if (servicesData.filteredProducts.length !== 0) {
-      let filteredProducts = ''
+      let filteredProducts = '';
       // servicesData.products.length
       for (let i = 0; i < servicesData.filteredProducts.length; i++) {
         // let splittedString = servicesData.products[i].name.split(',');
@@ -99,149 +104,145 @@ export const renderProducts = (filtered) => {
             <span class="price">MRP ₹ ` + servicesData.filteredProducts[i].price + `</span>
             <button class="button-Buy-Now" id="` + servicesData.filteredProducts[i].id + `">Buy Now</button>
           </div>
-          </div>`
+          </div>`;
       }
 
-      markup = markup.replace('%%products%%', filteredProducts)
-      elements.landingPage.mainContent.innerHTML = markup
+      markup = markup.replace('%%products%%', filteredProducts);
+      elements.landingPage.mainContent.innerHTML = markup;
 
       if (!elements.registerdEvents.productsPage.handleButtonsEventStatus) {
-        handleButtons()
+        handleButtons();
       }
     } else {
       const noProductsHtml = `<img class="noProducts" src="static/images/noproduct.jpg" alt="Sorry No Products" style="margin-left:auto; margin-right: auto; display: block;">
-      `
-      markup = markup.replace('%%products%%', noProductsHtml)
-      elements.landingPage.mainContent.innerHTML = markup
+      `;
+      markup = markup.replace('%%products%%', noProductsHtml);
+      elements.landingPage.mainContent.innerHTML = markup;
     }
   }
-}
-
+};
 const handleButtons = () => {
-  elements.registerdEvents.productsPage.handleButtonsEventStatus = true
-  document.querySelector('.products-listing').addEventListener('click', buttonEventHandler)
-}
+  elements.registerdEvents.productsPage.handleButtonsEventStatus = true;
+  document.querySelector('.products-listing').addEventListener('click', buttonEventHandler);
+};
 const filterCategories = () => {
   // console.log(event.target.classList);
-  elements.registerdEvents.productsPage.filterCategoriesEventStatus = true
-  document.addEventListener('click', filterCategoriesEventHandler)
-}
+  elements.registerdEvents.productsPage.filterCategoriesEventStatus = true;
+  document.addEventListener('click', filterCategoriesEventHandler);
+};
 export const updateProductDetails = (insertionType, productId) => {
-  let productCounter
+  let productCounter;
   for (productCounter = 0; productCounter < servicesData.products.length; productCounter++) {
     if (servicesData.products[productCounter].id === productId) {
-      break
+      break;
     }
   }
   switch (insertionType) {
     case 'new':
-      servicesData.cartStatus.productDetails.id = productId
-      servicesData.cartStatus.productDetails.count = 1
-      servicesData.cartStatus.productDetails.name = servicesData.products[productCounter].name
-      servicesData.cartStatus.productDetails.imageURL = servicesData.products[productCounter].imageURL
-      servicesData.cartStatus.productDetails.price = servicesData.products[productCounter].price
-      servicesData.cartStatus.productDetails.category = servicesData.products[productCounter].category
+      servicesData.cartStatus.productDetails.id = productId;
+      servicesData.cartStatus.productDetails.count = 1;
+      servicesData.cartStatus.productDetails.name = servicesData.products[productCounter].name;
+      servicesData.cartStatus.productDetails.imageURL = servicesData.products[productCounter].imageURL;
+      servicesData.cartStatus.productDetails.price = servicesData.products[productCounter].price;
+      servicesData.cartStatus.productDetails.category = servicesData.products[productCounter].category;
       // console.log(servicesData.cartStatus.productDetails);
 
-      break
+      break;
     case 'updateAdd':
-      servicesData.cartStatus.productDetails.count = servicesData.cartStatus.productDetails.count + 1
+      servicesData.cartStatus.productDetails.count = servicesData.cartStatus.productDetails.count + 1;
       // console.log(servicesData.cartStatus.productDetails);
-      break
+      break;
     case 'updateRemove':
-      servicesData.cartStatus.productDetails.count = servicesData.cartStatus.productDetails.count - 1
+      servicesData.cartStatus.productDetails.count = servicesData.cartStatus.productDetails.count - 1;
       if (servicesData.cartStatus.productDetails.count === 0) {
         servicesData.cartStatus.productDetails = {
           id: null
-        }
-        servicesData.cartStatus.productDetails.count = 0
-        elements.registerdEvents.CartPage.addItemEventStatus = false
-        elements.registerdEvents.CartPage.removeItemEventStatus = false
+        };
+        servicesData.cartStatus.productDetails.count = 0;
+        elements.registerdEvents.CartPage.addItemEventStatus = false;
+        elements.registerdEvents.CartPage.removeItemEventStatus = false;
       }
-      break
+      break;
     case 'empty':
-      servicesData.cartStatus.productDetails.id = productId
-      servicesData.cartStatus.productDetails.count = 1
-      servicesData.cartStatus.productDetails.name = servicesData.products[productCounter].name
-      servicesData.cartStatus.productDetails.imageURL = servicesData.products[productCounter].imageURL
-      servicesData.cartStatus.productDetails.price = servicesData.products[productCounter].price
-      servicesData.cartStatus.productDetails.category = servicesData.products[productCounter].category
+      servicesData.cartStatus.productDetails.id = productId;
+      servicesData.cartStatus.productDetails.count = 1;
+      servicesData.cartStatus.productDetails.name = servicesData.products[productCounter].name;
+      servicesData.cartStatus.productDetails.imageURL = servicesData.products[productCounter].imageURL;
+      servicesData.cartStatus.productDetails.price = servicesData.products[productCounter].price;
+      servicesData.cartStatus.productDetails.category = servicesData.products[productCounter].category;
       // console.log(servicesData.cartStatus.productDetails);
-      break
+      break;
   }
-  servicesData.cartStatus.cartDetails.totalItemCount = servicesData.cartStatus.productDetails.count
-}
+  servicesData.cartStatus.cartDetails.totalItemCount = servicesData.cartStatus.productDetails.count;
+};
 
 const buttonEventHandler = (event) => {
   if (event.target.classList.contains('button-Buy-Now')) {
-    XHRLoader(true)
-    let productId = event.target.id
-    let productDetails = {}
-    POSTAddToCart(event.target.id).subscribe(
-      (data) => {
-        if (data.response.statusCode === 200 && data.body.response === 'Success') {
+    XHRLoader(true);
+    let productId = event.target.id;
+    let productDetails = {};
+
+    fetchData(APIEndPoints.baseURL + APIEndPoints.addToCart.URL, event.target.id, 'POST')
+      .then(data => {
+        if (data.response === 'Success') {
           // When Cart is NOT empty
           if (servicesData.cartStatus.productDetails.id !== null) {
             if (servicesData.cartStatus.productDetails.id === productId) {
-              updateProductDetails('updateAdd', productId)
-              renderCartCount()
+              updateProductDetails('updateAdd', productId);
+              renderCartCount();
             } else {
-              updateProductDetails('new', productId)
-              renderCartCount()
+              updateProductDetails('new', productId);
+              renderCartCount();
             }
           } else { // When Cart is Empty
-            updateProductDetails('empty', productId)
-            renderCartCount()
+            updateProductDetails('empty', productId);
+            renderCartCount();
           }
         }
         // console.log(servicesData.cartStatus.cartDetails.onScreen);
         if (servicesData.cartStatus.cartDetails.onScreen) {
-          elements.registerdEvents.CartPage.addItemEventStatus = false
-          elements.registerdEvents.CartPage.removeItemEventStatus = false
-          renderCart(true)
+          elements.registerdEvents.CartPage.addItemEventStatus = false;
+          elements.registerdEvents.CartPage.removeItemEventStatus = false;
+          renderCart(true);
           elements.cartView.closeButtonIcon.addEventListener('click', e => {
-            renderCart(false)
-          })
+            renderCart(false);
+          });
         }
-        XHRLoader(false)
-      },
-      (err) => {
-        console.error(err)
-        XHRLoader(false)
-      }
-    )
+        XHRLoader(false);
+      })
+      .catch(error => console.error(error));
   }
-}
+};
 
 const filterCategoriesEventHandler = (event) => {
   if (event.target.classList.contains('filter-categories')) {
-    XHRLoader(true)
-    const categoryId = event.target.id
+    XHRLoader(true);
+    const categoryId = event.target.id;
 
     if (servicesData.filteredProducts == null) {
-      servicesData.filteredProducts = []
+      servicesData.filteredProducts = [];
       for (let i = 0; i < servicesData.products.length; i++) {
         if (categoryId === servicesData.products[i].category) {
-          servicesData.filteredProducts.push(servicesData.products[i])
+          servicesData.filteredProducts.push(servicesData.products[i]);
         }
       }
-      servicesData.categoryDetails.previousSelectedProductID = categoryId
-      renderProducts(true)
-      XHRLoader(false)
+      servicesData.categoryDetails.previousSelectedProductID = categoryId;
+      renderProducts(true);
+      XHRLoader(false);
     } else if (categoryId !== servicesData.categoryDetails.previousSelectedProductID) {
-      servicesData.filteredProducts = []
+      servicesData.filteredProducts = [];
       for (let i = 0; i < servicesData.products.length; i++) {
         if (categoryId === servicesData.products[i].category) {
-          servicesData.filteredProducts.push(servicesData.products[i])
+          servicesData.filteredProducts.push(servicesData.products[i]);
         }
       }
-      servicesData.categoryDetails.previousSelectedProductID = categoryId
-      renderProducts(true)
-      XHRLoader(false)
+      servicesData.categoryDetails.previousSelectedProductID = categoryId;
+      renderProducts(true);
+      XHRLoader(false);
     } else {
-      elements.registerdEvents.productsPage.handleButtonsEventStatus = false
-      renderProducts(false)
-      XHRLoader(false)
+      elements.registerdEvents.productsPage.handleButtonsEventStatus = false;
+      renderProducts(false);
+      XHRLoader(false);
     }
   }
-}
+};

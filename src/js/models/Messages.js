@@ -31,4 +31,4 @@ export const messages = {
     selector: 'info',
     cssSelector: 'message-box-info'
   }
-}
+};
