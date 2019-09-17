@@ -72,6 +72,7 @@ const registerRoutes = () => {
     state.routes = routes;
   }
   routes.mainPage.addEventListener('click', e => {
+    elements.updateURL('');
     renderCarousel(true);
     renderMainPage();
   });
@@ -122,7 +123,7 @@ const registerMessages = () => {
 };
 
 const loginController = () => {
-  // elements.updateURL('login')
+  elements.updateURL('login')
   if (!state.loginPage) {
     state.loginPage = {};
   }

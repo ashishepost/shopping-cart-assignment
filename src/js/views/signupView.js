@@ -12,7 +12,7 @@ export const renderSignup = () => {
       </div>
     </div>
     <div class="register__right">
-        <form class="form">
+        <form class="form" action="/" method="get">
           <div class="form__row">
             <label for="register__input--firstname">First Name</label>
             <input class="form__input register__input--firstname" id="register__input--firstname" type="text" autofocus required>
@@ -33,13 +33,13 @@ export const renderSignup = () => {
             <label for="register__input--confirm-password">Password</label>
             <input class="form__input register__input--confirm-password" id="register__input--confirm-password" type="password" required>
           </div>
-          <div class="form__row">
+        <!--  <div class="form__row">
             <label for="register__input--captcha">Please Enter Captcha</label>
             <div>
               <img src="https://www.phpcaptcha.org/securimage/securimage_show.php?namespace=captcha_one&0.6283334294085949">
             </div>
             <input class="form__input register__input--captcha" id="register__input--captcha" type="text" required>
-          </div>
+          </div> -->
           <div class="form__row">
           <button class="form__submit register__input--submit">Submit</button>
           </div>

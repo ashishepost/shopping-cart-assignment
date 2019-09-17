@@ -13,7 +13,7 @@ export const renderLogin = () => {
 
     </div>
     <div class="login__right">
-        <form class="form">
+        <form class="form" action="/" method="get">
           <div class="form__row">
             <label for="login__input--username">Email</label>
               <input class="form__input login__input--username" id="login__input--username" type="email" autofocus required>
