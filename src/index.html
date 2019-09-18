@@ -2,92 +2,50 @@
 <html lang="en">
 
 <head>
-  <style>
-    @font-face {
-      font-display: auto;
-    }
-  </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-  <title>Sabka Bazaar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords"
     content="online grocery,online grocery delhi,online grocery bangalore, online grocery shopping, online grocery store,online supermarket,grocery chennai,grocery pune, online grocery shopping india, buy groceries online,online grocery bangalore online vegetable store, food shopping online,Online Grocery mysore, online grocery patna" />
   <meta name="description" content="The best online grocery store in India. bigbasket is an online supermarket for all your daily needs. Online shopping now made easy with a wide range of groceries and home needs." />
-  <link rel="icon" type="image/png" href="assets/icons/favicon.ico">
-  <!-- Complete App related Styles -->
-  <link href="assets/css/app.css" rel="stylesheet">
-  <!-- Google Font used in this App -->
-  <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet">
-  <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script> -->
 
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> -->
-  <script type="text/javascript">
-    WebFontConfig = {
-      google: {
-        families: ['Dosis']
-      }
-    };
-    (function() {
-      var wf = document.createElement('script');
-      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-      wf.type = 'text/javascript';
-      wf.async = 'true';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(wf, s);
-    })();
-  </script>
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.ico">
+
+  <title>Sabka Bazaar</title>
 </head>
 
-<body>
-  <div class="page">
+<body class="container">
 
+  <header class="header">
+    Header
+  </header>
 
-    <section class="top-nav">
-      <ul class="menu">
-        <li class="menu__item"><a class="menu__item--login-route" href="#">SignIn</a></li>
-        <li class="menu__item"><a class="menu__item--signup-route" href="#">Register</a></li>
-      </ul>
+  <!-- Main part which is Updated by JavaScript -->
+  <main class="main">
 
-    </section>
-
-    <header class="header">
-
-      <div class="header__brand"></div>
-
-      <nav class="header__nav">
-        <ul class="menu">
-          <li class="menu__item"><a class="menu__item--main-page-route" href="#">Home</a></li>
-          <li class="menu__item"><a class="menu__item__list--products-route" href="#">Products</a></li>
-        </ul>
-      </nav>
-      <section class="header__cart">
-        <img class="header__cart--route" src="static/images/cart.svg" alt="cart">
-        <span class="header__cart--item-count cart-value">0 Items</span>
-      </section>
-    </header>
-    <div class="content">
-
-      <!-- Render Carousel -->
-      <div class="carousel-content">
-
-      </div>
-
-      <!-- Render All Routes -->
-      <div class="main-content">
-
-      </div>
-      <div class="loader">
-      </div>
-      <div class="cart">
-      </div>
-
+    <!-- Hero Section -->
+    <div class="hero">
+      Hero
     </div>
-    <footer class="footer">
-      <div class="footer__copyright">
-        Copyright &copy;2011-2018 Sabka Bazar Grocery Supplies Pvt. Ltd.
-      </div>
-    </footer>
-  </div>
+
+    <!-- Categories -->
+    <div class="categories">
+      Categories
+      <section class="categories__image">
+      </section>
+
+      <section class="categories__text">
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    Footer
+  </footer>
+
 </body>
 
 </html>

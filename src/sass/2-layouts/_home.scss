@@ -1,0 +1,19 @@
+// Hero Section
+
+.main {
+  background-color: $color-grey-dark-2;
+  grid-column: centre-start / centre-end;
+}
+
+.hero {
+  background-color: #000;
+}
+
+.categories {
+  background-color: #ccc;
+
+
+  &__image {}
+
+  &__text {}
+}
